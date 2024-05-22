@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a class="rounded-4" target="_blank" data-type="image">
+            <img class="rounded-4 fit" src="{{ url_for('charity_web.static', filename= 'charity_img/' + retour['image']) }}" alt="{{ retour.libelle }}"/>
+          </a>
+        </div>
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+        <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{ retour.libelle }}
+          </h4>
+          <p>
+            {{ retour.description }}
+          </p>
+
+          <hr />
+          <a href="{{ url_for('charity_web.gift', projetId=retour.id)}}" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Faire un don</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPayement">
+                Modal
+            </button>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+{% endblock %}
